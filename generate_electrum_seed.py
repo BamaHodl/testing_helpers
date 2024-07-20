@@ -26,7 +26,6 @@ def mnemonic_encode(i: int) -> str:
 def make_seed(prefix: str = None, num_words: int = 12) -> str:
         bpw = math.log(len(bip39.WORDLIST), 2)
         num_bits = num_words*11
-        num_bits = int(math.ceil(num_bits/bpw) * bpw)
         entropy = 1
         while entropy < pow(2, num_bits - bpw):  # try again if seed would not contain enough words
             entropy = randrange(pow(2, num_bits))
